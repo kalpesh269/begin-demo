@@ -9,6 +9,6 @@
   <h2>I am, 'THE PANDA'</h2>
   </div>
   <div>
-  <img src="panda.jpeg"width="200"/>
+  <img href="panda.jpeg"width="200"/>
   <br>
   <b><i>keep calm and follow my diet
