@@ -10,4 +10,5 @@
   </div>
   <div>
   <img src="panda.jpeg"width="200"/>
-  
+  <br>
+  <b><i>keep calm and follow my diet
