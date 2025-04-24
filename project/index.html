@@ -1,13 +1,243 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ElectroHUB - Compare Electronic Devices</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectroHUB - Compare Electronics with Confidence</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/comparison.css">
+  <link rel="stylesheet" href="styles/cards.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <a href="index.html">
+          <h1>Electro<span>HUB</span></h1>
+        </a>
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Search devices..." id="search-input">
+        <button id="search-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        </button>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#" class="active">Smartphones</a></li>
+          <li><a href="#">Laptops</a></li>
+          <li><a href="#">Tablets</a></li>
+          <li><a href="#">Smartwatches</a></li>
+          <li><a href="#">Audio</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Smartphone Comparison</h2>
+        <p>Find the perfect device that matches your needs and budget</p>
+      </div>
+    </section>
+
+    <section class="filters">
+      <div class="container">
+        <div class="tags-container">
+          <button class="tag-button active">Top Rated</button>
+          <button class="tag-button">5G</button>
+          <button class="tag-button">Best Battery</button>
+          <button class="tag-button">Best Camera</button>
+          <button class="tag-button">Gaming</button>
+          <button class="tag-button">Budget Friendly</button>
+          <button class="tag-button">Flagship</button>
+        </div>
+
+        <div class="filter-controls">
+          <div class="sort-control">
+            <label for="sort-by">Sort by</label>
+            <select id="sort-by">
+              <option value="rating">Rating: High to Low</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="release">Release Date</option>
+            </select>
+          </div>
+
+          <div class="filter-dropdown">
+            <button id="filter-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+              Filters
+            </button>
+            <div class="filter-panel" id="filter-panel">
+              <div class="filter-section">
+                <h4>Price Range</h4>
+                <div class="range-slider">
+                  <input type="range" min="100" max="2000" value="100" class="range-min" id="price-min">
+                  <input type="range" min="100" max="2000" value="2000" class="range-max" id="price-max">
+                  <div class="range-track"></div>
+                </div>
+                <div class="range-values">
+                  <span id="price-min-value">$100</span>
+                  <span id="price-max-value">$2000</span>
+                </div>
+              </div>
+              
+              <div class="filter-section">
+                <h4>Brand</h4>
+                <div class="checkbox-group">
+                  <label class="checkbox">
+                    <input type="checkbox" name="brand" value="apple" checked>
+                    <span class="checkmark"></span>
+                    Apple
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="brand" value="samsung" checked>
+                    <span class="checkmark"></span>
+                    Samsung
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="brand" value="google" checked>
+                    <span class="checkmark"></span>
+                    Google
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="brand" value="oneplus" checked>
+                    <span class="checkmark"></span>
+                    OnePlus
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="brand" value="xiaomi" checked>
+                    <span class="checkmark"></span>
+                    Xiaomi
+                  </label>
+                </div>
+              </div>
+
+              <div class="filter-section">
+                <h4>Features</h4>
+                <div class="checkbox-group">
+                  <label class="checkbox">
+                    <input type="checkbox" name="features" value="5g">
+                    <span class="checkmark"></span>
+                    5G
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="features" value="wireless-charging">
+                    <span class="checkmark"></span>
+                    Wireless Charging
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="features" value="water-resistant">
+                    <span class="checkmark"></span>
+                    Water Resistant
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="features" value="fast-charging">
+                    <span class="checkmark"></span>
+                    Fast Charging
+                  </label>
+                </div>
+              </div>
+
+              <div class="filter-buttons">
+                <button id="reset-filters">Reset</button>
+                <button id="apply-filters">Apply Filters</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison-bar" id="comparison-bar">
+      <div class="container">
+        <div class="comparison-content">
+          <h3>Compare Devices (<span id="compare-count">0</span>)</h3>
+          <div class="selected-items" id="selected-items"></div>
+          <div class="comparison-actions">
+            <button id="clear-comparison" class="secondary-button">Clear</button>
+            <button id="view-comparison" class="primary-button" disabled>Compare Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="container">
+        <div class="product-grid" id="product-grid">
+          <!-- Product cards will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>Electro<span>HUB</span></h2>
+          <p>Compare electronics with confidence</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Categories</h4>
+            <ul>
+              <li><a href="#">Smartphones</a></li>
+              <li><a href="#">Laptops</a></li>
+              <li><a href="#">Tablets</a></li>
+              <li><a href="#">Smartwatches</a></li>
+              <li><a href="#">Audio</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>About</h4>
+            <ul>
+              <li><a href="#">How it Works</a></li>
+              <li><a href="#">Our Data</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ElectroHUB. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="comparison-modal" id="comparison-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Device Comparison</h3>
+        <button id="close-modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="comparison-content">
+        <!-- Comparison content will be inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/data.js" type="module"></script>
+  <script src="scripts/main.js" type="module"></script>
+  <script src="scripts/filters.js" type="module"></script>
+  <script src="scripts/comparison.js" type="module"></script>
+</body>
 </html>
